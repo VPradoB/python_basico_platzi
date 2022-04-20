@@ -1,7 +1,30 @@
 # Conversor de monedas de BsS a USD
 
-bolivar = input("¿Cuántos bolivares tienes?: ")
-bolivar = float(bolivar)
-valor_dolar = 4.56
-dolar = bolivar / valor_dolar
-print(f'el monto en dolares es: ${dolar}')
+def bolivar_to_dolar(bolivar, equivalente) -> float:
+    return round(bolivar / equivalente, 2)
+
+def dolar_to_bolivar(dolar, equivalente) -> float:
+    return round(dolar * equivalente, 2)
+
+print("Escoja un tipo de conversión:")
+print("1. BsS-> USD")
+print("1. USD -> BsS")
+
+opcion = input("opción: ")
+quiero_convertir = True
+monto = input("Ingrese el monto a convertir: ")
+monto = float(monto)
+equivalente = 4.56
+
+while(quiero_convertir):
+    if(opcion == '1'):
+        resultado = bolivar_to_dolar(monto, equivalente)
+        print(f'el monto en dolares es: ${resultado}')
+    elif(opcion == '2'):
+        resultado = dolar_to_bolivar(monto, equivalente)
+        print(f'el monto en bolivares es: ${resultado}')
+    else:
+        print("la opción no es valida, escoja una de las alternativas (1, 2)")
+    quiero_convertir = bool(input("¿Quiere intentar otra conversión? (True,False)"))
+
+print("Gracias por usar la App")
