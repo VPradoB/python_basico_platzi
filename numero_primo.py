@@ -2,13 +2,10 @@ def es_divisible(dividendo: int, divisor: int) -> bool:
     return dividendo % divisor == 0
 
 
-def es_primo(dividendo: int) -> bool:
-    for divisor in range(2, dividendo):
-        if es_divisible(dividendo, divisor) == 0:
+def es_primo(numero: int) -> bool:
+    for i in range(2, numero):
+        if es_divisible(numero, i) == 0:
             return False
-
-        elif (dividendo//divisor)  < divisor:
-            break;
 
     return True   
 
