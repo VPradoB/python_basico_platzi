@@ -39,8 +39,8 @@ def imprimir_listado_opciones(opciones: list) -> None:
 
 
 def run():
-    monedas: list[str] = ["VES", "USD", "EUR", "ARS"]
-    equivalentes: list[float] = [4.56, 1, 0.92, 114.08]
+    monedas = ("VES", "USD", "EUR", "ARS")
+    equivalentes = (4.56, 1, 0.92, 114.08)
 
     menu_dialogo_1: str = """
     Bienvenido al conversor de monedas 😁
