@@ -39,39 +39,39 @@ def imprimir_listado_opciones(opciones: list) -> None:
 
 
 def run():
-    monedas = ["VES", "USD", "EUR", "ARS"]
-    equivalentes = [4.56, 1, 0.92, 114.08]
+    monedas: list[str] = ["VES", "USD", "EUR", "ARS"]
+    equivalentes: list[float] = [4.56, 1, 0.92, 114.08]
 
-    menu_dialogo_1 = """
+    menu_dialogo_1: str = """
     Bienvenido al conversor de monedas 😁
     ¿Qué divisa deseas convertir?  🤔:
     """
 
-    menu_dialogo_2 = """
+    menu_dialogo_2: str = """
     Genial!! 😎 ¿a cuál moneda deseas convertir?
     """
 
-    quiero_convertir = True
+    quiero_convertir: bool = True
 
     while(quiero_convertir):
 
         print(menu_dialogo_1)
         imprimir_listado_opciones(monedas)
-        opcion1 = int(input("opción: "))
+        opcion1: int = int(input("opción: "))
         
         print(menu_dialogo_2)
         imprimir_listado_opciones(monedas)
-        opcion2 = int(input("opción: "))
+        opcion2: int = int(input("opción: "))
 
         monto = input("Ingrese el monto a convertir 🤑: ")
         monto = float(monto)
 
-        conversion = divisa_to_dolar(monto, equivalentes[opcion1])
+        conversion: float = divisa_to_dolar(monto, equivalentes[opcion1])
         conversion = dolar_to_divisa(conversion, equivalentes[opcion2])
-        resultado = f"\nel resultado es: ${conversion}${monedas[opcion2]}\n"
+        resultado: float = f"\nel resultado es: ${conversion}${monedas[opcion2]}\n"
         print(resultado)
 
-        quiero_convertir = eval(input("¿Quiere intentar otra conversión? (True,False)"))
+        quiero_convertir = eval(input("¿Quiere intentar otra conversión? (True,False): "))
 
     print("Gracias por usar la App, hasta la proxima 😶‍🌫️")
 

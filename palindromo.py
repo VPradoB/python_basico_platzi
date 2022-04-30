@@ -1,4 +1,4 @@
-def es_palindromo(oracion):
+def es_palindromo(oracion: str) -> bool:
     oracion = oracion.replace(' ','')
     oracion = oracion.lower()
     return oracion[::] == oracion[::-1]
