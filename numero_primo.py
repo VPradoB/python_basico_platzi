@@ -1,6 +1,7 @@
 def es_divisible(dividendo: int, divisor: int) -> bool:
     return dividendo % divisor == 0
 
+
 def es_primo(numero: int) -> bool:
     for i in range(2, numero):
         if es_divisible(numero, i):
