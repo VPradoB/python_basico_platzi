@@ -15,6 +15,7 @@ def divisa_to_dolar(divisa: float, equivalente: float) -> float:
     """
     return round(divisa / equivalente, 2)
 
+
 def dolar_to_divisa(dolar: float, equivalente: float) -> float:
     """ Convierte un monto en dolares a una divisa mediante una tasa de conversion.
 
@@ -26,6 +27,7 @@ def dolar_to_divisa(dolar: float, equivalente: float) -> float:
     """
     return round(dolar * equivalente, 2)
 
+
 def imprimir_listado_opciones(opciones: list) -> None:
     """ De un listado de opciones imprime en la consola el indice seguido de la opción.
 
@@ -35,38 +37,44 @@ def imprimir_listado_opciones(opciones: list) -> None:
     for indice, opcion in enumerate(opciones):
         print(f"{indice}. ${opcion}")
 
-monedas = ["VES", "USD", "EUR", "ARS"]
-equivalentes = [4.56, 1, 0.92, 114.08]
 
-menu_dialogo_1 = """
-Bienvenido al conversor de monedas 😁
-¿Qué divisa deseas convertir?  🤔:
-"""
+def run():
+    monedas = ["VES", "USD", "EUR", "ARS"]
+    equivalentes = [4.56, 1, 0.92, 114.08]
 
-menu_dialogo_2 = """
- Genial!! 😎 ¿a cuál moneda deseas convertir?
-"""
+    menu_dialogo_1 = """
+    Bienvenido al conversor de monedas 😁
+    ¿Qué divisa deseas convertir?  🤔:
+    """
 
-quiero_convertir = True
+    menu_dialogo_2 = """
+    Genial!! 😎 ¿a cuál moneda deseas convertir?
+    """
 
-while(quiero_convertir):
+    quiero_convertir = True
 
-    print(menu_dialogo_1)
-    imprimir_listado_opciones(monedas)
-    opcion1 = int(input("opción: "))
-    
-    print(menu_dialogo_2)
-    imprimir_listado_opciones(monedas)
-    opcion2 = int(input("opción: "))
+    while(quiero_convertir):
 
-    monto = input("Ingrese el monto a convertir 🤑: ")
-    monto = float(monto)
+        print(menu_dialogo_1)
+        imprimir_listado_opciones(monedas)
+        opcion1 = int(input("opción: "))
+        
+        print(menu_dialogo_2)
+        imprimir_listado_opciones(monedas)
+        opcion2 = int(input("opción: "))
 
-    conversion = divisa_to_dolar(monto, equivalentes[opcion1])
-    conversion = dolar_to_divisa(conversion, equivalentes[opcion2])
-    resultado = f"\nel resultado es: ${conversion}${monedas[opcion2]}\n"
-    print(resultado)
+        monto = input("Ingrese el monto a convertir 🤑: ")
+        monto = float(monto)
 
-    quiero_convertir = eval(input("¿Quiere intentar otra conversión? (True,False)"))
+        conversion = divisa_to_dolar(monto, equivalentes[opcion1])
+        conversion = dolar_to_divisa(conversion, equivalentes[opcion2])
+        resultado = f"\nel resultado es: ${conversion}${monedas[opcion2]}\n"
+        print(resultado)
 
-print("Gracias por usar la App, hasta la proxima 😶‍🌫️")
+        quiero_convertir = eval(input("¿Quiere intentar otra conversión? (True,False)"))
+
+    print("Gracias por usar la App, hasta la proxima 😶‍🌫️")
+
+
+if __name__ == '__main__':
+    run()
